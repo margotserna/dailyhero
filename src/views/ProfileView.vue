@@ -1,6 +1,6 @@
 <template>
   <div class="auth">
-    Profile
+    <router-link to="/role">Role</router-link>
   </div>
 </template>
 
