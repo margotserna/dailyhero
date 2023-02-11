@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import RoleSelection from '../views/RoleSelectionView.vue'
-
+import SuperHero from '../views/SuperHeroesView.vue'
 const routes = [
   {
     path: '/',
@@ -16,7 +16,12 @@ const routes = [
     component: function () {
       return import(/* webpackChunkName: "about" */ '../views/MapView.vue')
     }
-  }
+  }, 
+  {
+    path: '/superheroes',
+    name: 'SuperHeroes',
+    component: SuperHero
+  },
 ]
 
 const router = createRouter({
