@@ -13,27 +13,3 @@ html{
 body{
     margin: 0;
 }
-
-button{
-    background-color: var(--secondary-color);
-    padding: 15px 30px;
-    border: 0px;
-    color: var(--main-bg-color);
-    border-radius: 50px;
-    font-size: 0.4em;
-    font-weight: bold;
-}
-
-button.secondary{
-    background-color: transparent;
-    border: 2px solid var(--main-color);
-    color: var(--secondary-color);
-}
-
-input{
-    font-size: 0.6em;
-    border: #1E214E 2px solid;
-    border-radius: 10px;
-    background-color: transparent;
-    padding: 5px;
-}
