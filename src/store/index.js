@@ -3,7 +3,7 @@ import { createStore } from 'vuex'
 export default createStore({
   state () {
     return {
-      user_id: null
+      user_id: ""
     }
   },
   getters: {
