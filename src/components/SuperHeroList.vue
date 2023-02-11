@@ -20,7 +20,7 @@ export default {
   },
   mounted () {
     axios
-      .get('https://eu-west-2.aws.data.mongodb-api.com/app/dailyhero-cypmd/endpoint/users')
+      .get('https://eu-west-2.aws.data.mongodb-api.com/app/dailyhero-cypmd/endpoint/users?type=hero')
       .then(response => (this.superheroes = response.data))
   }, 
   data () {
