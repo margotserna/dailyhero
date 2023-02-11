@@ -1,20 +1,20 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import AuthView from '../views/AuthView.vue'
+import RoleSelection from '../views/RoleSelectionView.vue'
 
 const routes = [
   {
     path: '/',
-    name: 'AuthView',
-    component: AuthView
+    name: 'RoleSelectionView',
+    component: RoleSelection
   },
   {
-    path: '/role',
-    name: 'RoleSelectionView',
+    path: '/map',
+    name: 'MapView',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: function () {
-      return import(/* webpackChunkName: "about" */ '../views/RoleSelectionView.vue')
+      return import(/* webpackChunkName: "about" */ '../views/MapView.vue')
     }
   }
 ]

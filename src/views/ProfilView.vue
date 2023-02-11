@@ -1,5 +1,5 @@
 <template>
-  <div class="auth">
+  <div class="profil">
     <router-link to="/role">Role</router-link>
   </div>
 </template>
@@ -7,6 +7,6 @@
 <script>
 
 export default {
-  name: 'ProfileView',
+  name: 'ProfilView',
 }
 </script>
