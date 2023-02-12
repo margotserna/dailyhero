@@ -1,13 +1,13 @@
 <template>
-  <MapHeroComponent/>
+  <MapCitizenComponent/>
 </template>
 
 <script>
-import MapHeroComponent from "../components/MapHeroComponent.vue";
+import MapCitizenComponent from "../components/MapCitizenComponent.vue";
 export default {
   name: 'MapView',
   components: {
-    MapHeroComponent,
+    MapCitizenComponent,
   },
 }
 </script>
