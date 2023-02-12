@@ -9,7 +9,7 @@
         layer-type="base"
         name="OpenStreetMap"
       ></l-tile-layer>
-      <l-marker :key="1618" :lat-lng="[latitude, longitude]">
+      <l-marker :key="1618" :lat-lng="[latitude, longitude]" @click="showDetails" style="pointer-events: auto;">
         <l-icon ref="me-icon">
           <img
             class="me-icon"
@@ -52,6 +52,7 @@ export default {
     let lonMin = 0;
     let lonMax = 0;
     let gettingLocation = false;
+    let userID = 0;
     return {
       zoom: 15.5,
       markers: [],
@@ -62,6 +63,7 @@ export default {
       lonMin,
       lonMax,
       gettingLocation,
+      userID
     };
   },
   async created() {
@@ -100,6 +102,14 @@ export default {
           console.error(error);
         });
     },
+    showDetails() {
+      this.$router.push({
+        name: "user-details",
+        params: {
+          id: this.userID
+        }
+      });
+    }
   },
 };
 </script>

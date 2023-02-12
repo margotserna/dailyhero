@@ -9,7 +9,7 @@
         layer-type="base"
         name="OpenStreetMap"
       ></l-tile-layer>
-      <l-marker :key="1618" :lat-lng="[latitude, longitude]">
+      <l-marker :key="1618" :lat-lng="[latitude, longitude]" @click="showDetails" style="pointer-events: auto;">
         <l-icon ref="me-icon">
           <img
             class="me-icon"
@@ -101,6 +101,14 @@ export default {
           console.error(error);
         });
     },
+    showDetails() {
+      this.$router.push({
+        name: "user-details",
+        params: {
+          id: this.userID
+        }
+      });
+    }
   },
 };
 </script>
