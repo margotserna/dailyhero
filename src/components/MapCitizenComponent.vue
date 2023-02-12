@@ -5,7 +5,7 @@
   >
     <l-map ref="map" v-model:zoom="zoom" :center="[latitude, longitude]">
       <l-tile-layer
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        url="http://{s}.tile.stamen.com/watercolor/{z}/{x}/{y}.jpg"
         layer-type="base"
         name="OpenStreetMap"
       ></l-tile-layer>
