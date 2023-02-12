@@ -33,6 +33,7 @@ export default {
   justify-content: space-between;
   align-items: left;
   border-radius: 20px;
+  background-color: var(--hero-secondary);
 }
 
 .mission-item img {
