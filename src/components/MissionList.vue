@@ -1,14 +1,19 @@
 <template>
   <div class="mission-list">
-    <h1>Liste : {{ count }}</h1>
-    <div v-for="(mission, index) in missions" v-bind:key="index">
-      <MissionItem
-        :title="mission.title"
-        :description="mission.description"
-        :criticity="mission.criticity"
-        :imageUrl="mission.user_imageUrl"
-        :username="mission.user_username"
-      ></MissionItem>
+    <div class="header">
+      <router-link to="/map" class="back">retour</router-link>
+      <h1>Missions à proximité</h1>
+    </div>
+    <div class="list-container">
+      <div v-for="(mission, index) in missions" v-bind:key="index" class="list-item">
+        <MissionItem
+          :title="mission.title"
+          :description="mission.description"
+          :criticity="mission.criticity"
+          :imageUrl="mission.user_imageUrl"
+          :username="mission.user_username"
+        ></MissionItem>
+      </div>
     </div>
   </div>
 </template>
@@ -30,7 +35,6 @@ export default {
       .then(response => {
         this.missions = response.data
         for (let index in this.missions) {
-          this.count = this.count + 1;
           axios
           .get('https://eu-west-2.aws.data.mongodb-api.com/app/dailyhero-cypmd/endpoint/users?id=' + this.missions[index].user_id)
           .then(response => {
@@ -54,12 +58,51 @@ export default {
     return {
         missions: null,
         missionObject: {},
-        user: null, 
-        count: 0
+        user: null
     }
   }
 }
 </script>
 
+
 <style scoped>
+.header {
+  background-color: var(--hero-color);
+  padding: 20px;
+  height: 20vh;
+}
+.header h1 {
+  text-align: center;
+  font-size: 1.5em;
+  width: 80vw;
+  margin-right: auto;
+  margin-left: auto;
+}
+.header {
+  text-align: right;
+}
+.back {
+  color: var(--secondary-color);
+}
+.list-container {
+  overflow-y: scroll;
+  max-height: calc(80vh - 40px);
+}
+.list-item {
+  margin: 20px 10px 0 10px;
+  position: relative;
+  /* background-color: #ffe6e4; */
+  background-color: var(--hero-secondary);
+}
+.list-item:last-child{
+  margin-bottom: 20px;
+}
+.list-container > ::after{
+  position: absolute;
+  content: '';
+  width: 5px;
+  height: 100%;
+  top: 0px;
+  background-color: var(--hero-color);
+}
 </style>

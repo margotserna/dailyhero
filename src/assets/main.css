@@ -7,7 +7,9 @@ html{
     --main-color: #04D7A2;
     --secondary-color: #1E214E;
     --citoyen-color: #5bd0ff;
+    --citoyen-secondary: #dffaff;
     --hero-color: #ff5347;
+    --hero-secondary: #fccdca;
     font-family: Sora;
     color: var(--secondary-color);
 }

@@ -1,12 +1,13 @@
 <template>
-  <div class="super-hero-item">
-    <div class="super-hero-picture">
+  <div class="mission-item">
+    <div class="mission-picture">
         <img src='{{ imageUrl }}' alt="Citizen profile picture"/>
     </div>
-    <div class="super-hero-info">
+    <div class="mission-info">
         <h3> {{ title }}</h3>
-        <span>Créé par : {{ username }}</span>
         <p>{{ description }}</p>
+        <span>Créé par : {{ username }}</span>
+        
         <span> Criticité : {{ criticity }}</span>
     </div>
   </div>
@@ -26,14 +27,26 @@ export default {
 </script>
 
 <style scoped>
-.super-hero-item {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-around;
-    background-color: beige;
+.mission-item {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: left;
+  border-radius: 20px;
 }
 
-.super-hero-picture {
-    width: 100px;
+.mission-item img {
+  width: 100%;
+}
+
+.mission-picture {
+  width: 100px;
+}
+.mission-info {
+  overflow: hidden;
+}
+
+.mission-info p {
+  width: 100%;
 }
 </style>
