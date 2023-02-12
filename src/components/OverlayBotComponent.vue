@@ -1,6 +1,9 @@
 <template>
-  <div id="OverlayBot" :class="this.$store.state.user.type">
-    <router-link :to="this.$store.state.user.type == 'hero' ? '/missions' : '/superheroes'" class="link-to-list">
+  <div id="OverlayBot">
+    <router-link to="/profile" class="link-to-profile">
+      <div class="icon-circle"></div>
+    </router-link>
+    <router-link to="/superheroes" class="link-to-list">
       <div></div>
       <div></div>
       <div></div>
@@ -45,7 +48,8 @@ export default {};
 }
 
 .link-to-list,
-.link-to-create {
+.link-to-create, 
+.link-to-profile {
   width: 75px;
   height: 75px;
   border-radius: 50%;
@@ -116,6 +120,15 @@ export default {};
   background-color: var(--secondary-color);
   border-radius: 5px;
   position: absolute;
+}
+
+.link-to-profile {
+  position: fixed;
+  top : 20px;
+  right: 20px;
+  width: 80px;
+  height: 80px;
+  background-color: #ffafaf;
 }
 .icon-arrow div:nth-child(1){
   transform:  translateX(-2px) rotateZ(45deg);
