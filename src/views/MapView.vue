@@ -1,12 +1,13 @@
 <template>
-  <div class="auth">
-    Map
-  </div>
+  <MapHeroComponent/>
 </template>
 
 <script>
-
+import MapHeroComponent from "../components/MapHeroComponent.vue";
 export default {
   name: 'MapView',
+  components: {
+    MapHeroComponent,
+  },
 }
 </script>
