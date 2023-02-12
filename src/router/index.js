@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import RoleSelection from '../views/RoleSelectionView.vue'
-import SuperHero from '../views/SuperHeroesView.vue'
+
 const routes = [
   {
     path: '/',
@@ -19,8 +19,10 @@ const routes = [
   }, 
   {
     path: '/superheroes',
-    name: 'SuperHeroes',
-    component: SuperHero
+    name: 'SuperHeroesView',
+    component: function () {
+      return import(/* webpackChunkName: "about" */ '../views/SuperHeroesView.vue')
+    }
   },
 ]
 

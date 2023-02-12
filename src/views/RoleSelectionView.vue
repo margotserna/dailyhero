@@ -74,7 +74,7 @@ export default {
   } */
 .bg-1 {
   position: absolute;
-  background-color: #5bd0ff;
+  background-color: var(--citoyen-color);
   width: 200vw;
   height: 150vh;
   transform: rotateZ(10deg);
@@ -83,7 +83,7 @@ export default {
 }
 .bg-2 {
   position: absolute;
-  background-color: #ff5347;
+  background-color: var(--hero-color);
   width: 200vw;
   height: 150vh;
   transform: rotateZ(10deg);

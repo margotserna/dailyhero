@@ -6,6 +6,8 @@ html{
     --main-bg-color: #FBFBFC;
     --main-color: #04D7A2;
     --secondary-color: #1E214E;
+    --citoyen-color: #5bd0ff;
+    --hero-color: #ff5347;
     font-family: Sora;
     color: var(--secondary-color);
 }
