@@ -3,7 +3,7 @@
     <div class="super-hero-picture">
       <img
         v-if="imageUrl"
-        :src="require('../assets/img/icons/hero/' + imageUrl + '.png')"
+        :src="require(`../assets/img/icons/hero/${imageUrl}.png`)"
         alt="Super hero profile picture"
       />
     </div>

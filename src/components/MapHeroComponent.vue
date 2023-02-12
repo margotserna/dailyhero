@@ -1,9 +1,9 @@
 <template>
   <div
-    style="height: 1370px; width: 800px; margin-left: -10px"
+    class="map"
     v-if="gettingLocation"
   >
-    <l-map ref="map" v-model:zoom="zoom" :center="[latitude, longitude]">
+    <l-map class="map-leaflet" ref="map" v-model:zoom="zoom" :center="[latitude, longitude]">
       <l-tile-layer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         layer-type="base"
@@ -16,6 +16,9 @@
       >
       </HereosComponent>
     </l-map>
+      <div class="overlay-bot-container">
+        <OverlayBotComponent />
+      </div>
   </div>
 </template>
 
@@ -23,6 +26,7 @@
 import "leaflet/dist/leaflet.css";
 import { LMap, LTileLayer } from "@vue-leaflet/vue-leaflet";
 import HereosComponent from "../components/HereosComponent.vue";
+import OverlayBotComponent from "../components/OverlayBotComponent.vue";
 import axios from "axios";
 
 export default {
@@ -31,6 +35,7 @@ export default {
     LMap,
     LTileLayer,
     HereosComponent,
+    OverlayBotComponent,
   },
   data() {
     let latitude = 0;
@@ -82,4 +87,20 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.map{
+  height: 100vh; 
+  width: 100vw;
+  position: relative;
+}
+.map-leaflet{
+  z-index: 0;
+}
+.overlay-bot-container{
+  width: 100vw;
+  height: 15vh;
+  position: absolute;
+  bottom: 25px;
+  z-index: 10;
+}
+</style>

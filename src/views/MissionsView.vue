@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div class="missions">
     <MissionList/>
   </div>
 </template>
@@ -14,3 +14,7 @@ export default {
   }
 };
 </script>
+
+<style lang="css">
+
+</style>
