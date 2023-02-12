@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import RoleSelection from '../views/RoleSelectionView.vue'
 import SuperHero from '../views/SuperHeroesView.vue'
+import Mission from '../views/MissionsView.vue'
 const routes = [
   {
     path: '/',
@@ -21,6 +22,11 @@ const routes = [
     path: '/superheroes',
     name: 'SuperHeroes',
     component: SuperHero
+  },
+  {
+    path: '/missions',
+    name: 'Mission',
+    component: Mission
   },
 ]
 
