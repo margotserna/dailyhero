@@ -13,12 +13,14 @@
       ></l-tile-layer>
       <l-marker :key="1618" :lat-lng="[latitude, longitude]">
         <l-icon ref="me-icon">
-          <img
-            class="me-icon"
-            :src="
-              require(`@/assets/icon_hero/2612562_hero_super girl_woman_wonder woman_icon.png`)
-            "
-          />
+          <div class="marker-me">
+            <div></div>
+            <div></div>
+            <img
+              class="mine-icon"
+              :src="require(`@/assets/img/icons/hero/fox.png`)"
+            />
+          </div>
         </l-icon>
       </l-marker>
       <HereosComponent
@@ -111,7 +113,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .map {
   height: 100vh;
   width: 100vw;
@@ -127,10 +129,51 @@ export default {
   bottom: 25px;
   z-index: 10;
 }
-.me-icon {
+.marker-me {
   height: 50px;
-  width: auto;
+  width: 50px;
   margin-top: -17px;
   margin-left: -17px;
+  background-color: var(--hero-color);
+  border-radius: 50%;
+  display: flex;
+  position: relative;
+}
+.mine-icon{
+ width: 80% !important;
+ margin: auto;
+}
+.marker-me div{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 4px solid var(--hero-color);
+  transform: translate(-4px,-4px);
+  animation: 1.2s infinite ease marker-hero-anim;
+}
+.marker-me div:nth-child(2){
+  animation-delay: 0.4s;
+}
+
+@keyframes marker-hero-anim {
+  from{
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    left: 0;
+    top: 0%;
+
+  }
+  80%{
+    width: 140%;
+    height: 140%;
+    left: -20%;
+    top: -20%;
+    opacity: 0;
+  }
+  to{
+    opacity: 0;
+  }
 }
 </style>

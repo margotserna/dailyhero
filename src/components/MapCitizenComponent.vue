@@ -95,7 +95,6 @@ export default {
         )
         .then((response) => {
           this.markers = response.data;
-          console.log(this.markers[0])
         })
         .catch((error) => {
           console.error(error);

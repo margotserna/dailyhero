@@ -1,10 +1,12 @@
 <template>
-  <l-marker
-    :key="marker._id"
-    :lat-lng="[marker.lat,marker.lon]"
-  >
+  <l-marker :key="marker._id" :lat-lng="[marker.lat, marker.lon]">
     <l-icon ref="icon">
-      <img class="hero-icon" :src="require(`@/assets/icon_hero/2612562_hero_super girl_woman_wonder woman_icon.png`)"/>
+      <div class="img-marker">
+        <img
+          class="hero-icon"
+          :src="require(`@/assets/img/icons/citoyen/${marker.imageUrl}.png`)"
+        />
+      </div>
     </l-icon>
   </l-marker>
 </template>
@@ -17,18 +19,27 @@ export default {
   props: {
     marker: {
       type: Object,
-      required: true
-    }
-  }
-}
-
+      required: true,
+    },
+  },
+  mounted() {
+    console.log(this.$props.marker);
+  },
+};
 </script>
 
 <style>
-  .hero-icon {
-    height: 50px;
-    width: auto;
-    margin-top: -17px;
-    margin-left: -17px;
-  }
+.img-marker {
+  height: 50px;
+  width: 50px;
+  margin-top: -17px;
+  margin-left: -17px;
+  background-color: var(--citoyen-color);
+  border-radius: 50%;
+  display: flex;
+}
+.hero-icon{
+ width: 80% !important;
+ margin: auto;
+}
 </style>

@@ -7,6 +7,16 @@
     </router-link>
     <router-link to="/" class="link-back">
       <img :src="require(`../assets/img/icons/${isUserHero ? 'hero':'citoyen'}/fox.png`)" />
+      <div class="icon-circle">
+        <div class="icon-arrow">
+          <div></div>
+          <div></div>
+        </div>
+        <div class="icon-arrow">
+          <div></div>
+          <div></div>
+        </div>
+      </div>
     </router-link>
     <router-link to="/map" class="link-to-create">
       <div></div>
@@ -49,6 +59,7 @@ export default {};
   box-shadow: 0px 10px 10px #08080836;
   border-radius: 50%;
   display: flex;
+  position: relative;
 }
 .link-back img {
   width: 90%;
@@ -73,5 +84,43 @@ export default {};
 
 .link-to-create div:nth-child(1){
   transform: rotateZ(90deg);
+}
+
+.icon-circle{
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  bottom: 10px;
+  right: 15px;
+  border: 4px solid var(--secondary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.icon-arrow{
+  width: 1px;
+  height: 1px;
+  position: absolute;
+}
+
+.icon-arrow div{
+  width: 4px;
+  height: 10px;
+  background-color: var(--secondary-color);
+  border-radius: 5px;
+  position: absolute;
+}
+.icon-arrow div:nth-child(1){
+  transform:  translateX(-2px) rotateZ(45deg);
+}
+.icon-arrow div:nth-child(2){
+  transform: translateX(2px) rotateZ(-45deg);  
+}
+.icon-arrow:nth-child(1){
+  transform: translate(9px, -4px);  
+}
+.icon-arrow:nth-child(2){
+  transform: translate(-11px, 6px) rotateZ(180deg);  
 }
 </style>
