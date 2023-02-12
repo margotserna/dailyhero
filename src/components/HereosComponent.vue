@@ -2,6 +2,7 @@
   <l-marker
     :key="marker._id"
     :lat-lng="[marker.lat,marker.lon]"
+    @click="showDetails" style="pointer-events: auto;"
   >
     <l-icon ref="icon">
       <img class="hero-icon" :src="require(`@/assets/icon_hero/2612562_hero_super girl_woman_wonder woman_icon.png`)"/>
@@ -18,6 +19,16 @@ export default {
     marker: {
       type: Object,
       required: true
+    }
+  },
+  methods: {
+    showDetails() {
+      this.$router.push({
+        name: "SuperHeroesView",
+        params: {
+          id: this.marker._id
+        }
+      });
     }
   }
 }
