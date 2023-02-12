@@ -1,12 +1,12 @@
 <template>
-  <div id="OverlayBot">
-    <router-link to="/superheroes" class="link-to-list">
+  <div id="OverlayBot" :class="this.$store.state.user.type">
+    <router-link :to="this.$store.state.user.type == 'hero' ? '/missions' : '/superheroes'" class="link-to-list">
       <div></div>
       <div></div>
       <div></div>
     </router-link>
     <router-link to="/" class="link-back">
-      <img :src="require(`../assets/img/icons/${isUserHero ? 'hero':'citoyen'}/fox.png`)" />
+      <img :src="require(`../assets/img/icons/${this.$store.state.user.type == 'hero' ? 'hero':'citoyen'}/fox.png`)" />
       <div class="icon-circle">
         <div class="icon-arrow">
           <div></div>
@@ -36,6 +36,12 @@ export default {};
   display: flex;
   justify-content: space-around;
   align-items: flex-end;
+}
+
+.citizen .link-to-list,
+.citizen .link-to-create,
+.citizen .link-back {
+  background-color:#DFFAFF !important;
 }
 
 .link-to-list,

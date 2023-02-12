@@ -8,20 +8,21 @@ export default createStore({
         pseudo: "Super Simon",
         username: "Simon",
         token: 20,
-        type: "hero",
+        type: "citizen",
         lon: -1.7938438776198748,
         lat: 47.02075094279522
       }
     }
+
   },
   getters: {
   },
   mutations: {
     setUserId(user_id){
-      this.state.user_id = user_id
+      this.state.user.id = user_id
     },
-    setIsHero(bool){
-      this.state.isHero = bool
+    setUserType(type){
+      this.state.user.type = type
     }
   },
   actions: {

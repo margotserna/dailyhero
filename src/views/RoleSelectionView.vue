@@ -30,14 +30,17 @@ export default {
   methods: {
     citoyen() {
       this.isCitoyen = true;
+      this.$store.state.user.type = 'citizen';
       this.switch();
     },
     hero() {
       this.isHero = true;
+      this.$store.state.user.type = 'hero';
       this.switch();
     },
     switch() {
       let router = this.$router;
+      
       setTimeout(function () {
         router.push({ name: "MapView" });
       }, 1100);
