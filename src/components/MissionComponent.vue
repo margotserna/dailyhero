@@ -9,7 +9,7 @@
       <div class="img-marker">
         <img
           class="citizen-icon"
-          :src="require(`@/assets/img/icons/hero/${marker.imageUrl}.png`)"
+          :src="require(`@/assets/img/icons/hero/fox.png`)"
         />
       </div>
     </l-icon>
