@@ -2,14 +2,12 @@
   <l-marker
     :key="marker._id"
     :lat-lng="[marker.lat, marker.lon]"
-    @click="showDetails"
-    style="pointer-events: auto"
   >
     <l-icon ref="icon">
       <div class="img-marker">
         <img
           class="citizen-icon"
-          :src="require(`@/assets/img/icons/hero/${marker.imageUrl}.png`)"
+          :src="require(`@/assets/img/icons/hero/fox.png`)"
         />
       </div>
     </l-icon>
@@ -25,16 +23,6 @@ export default {
     marker: {
       type: Object,
       required: true,
-    },
-  },
-  methods: {
-    showDetails() {
-      this.$router.push({
-        name: "Mission",
-        params: {
-          id: this.marker._id,
-        },
-      });
     },
   },
 };

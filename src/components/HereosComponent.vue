@@ -1,5 +1,10 @@
 <template>
-  <l-marker :key="marker._id" :lat-lng="[marker.lat, marker.lon]">
+  <l-marker
+    :key="marker._id"
+    :lat-lng="[marker.lat, marker.lon]"
+    @click="showDetails"
+    style="pointer-events: auto"
+  >
     <l-icon ref="icon">
       <div class="img-marker">
         <img
@@ -22,8 +27,15 @@ export default {
       required: true,
     },
   },
-  mounted() {
-    console.log(this.$props.marker);
+  methods: {
+    showDetails() {
+      this.$router.push({
+        name: "Mission",
+        params: {
+          id: this.marker._id,
+        },
+      });
+    },
   },
 };
 </script>
@@ -38,8 +50,8 @@ export default {
   border-radius: 50%;
   display: flex;
 }
-.hero-icon{
- width: 80% !important;
- margin: auto;
+.hero-icon {
+  width: 80% !important;
+  margin: auto;
 }
 </style>
