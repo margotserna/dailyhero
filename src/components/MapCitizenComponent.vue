@@ -1,22 +1,25 @@
 <template>
   <div
-    style="height: 1370px; width: 800px; margin-left: -10px"
+    class="map"
     v-if="gettingLocation"
   >
-    <l-map ref="map" v-model:zoom="zoom" :center="[latitude, longitude]">
+    <l-map class="map-leaflet" ref="map" v-model:zoom="zoom" :center="[latitude, longitude]">
       <l-tile-layer
         url="http://{s}.tile.stamen.com/watercolor/{z}/{x}/{y}.jpg"
         layer-type="base"
         name="OpenStreetMap"
+        options="{ zoomControl: true, dragging: mobileDragg, tap: mobileTap }"
       ></l-tile-layer>
       <l-marker :key="1618" :lat-lng="[latitude, longitude]" @click="showDetails" style="pointer-events: auto;">
         <l-icon ref="me-icon">
-          <img
-            class="me-icon"
-            :src="
-              require(`@/assets/icon_hero/2612562_hero_super girl_woman_wonder woman_icon.png`)
-            "
-          />
+          <div class="marker-me">
+            <div></div>
+            <div></div>
+            <img
+              class="mine-icon"
+              :src="require(`@/assets/img/icons/citoyen/fox.png`)"
+            />
+          </div>
         </l-icon>
       </l-marker>
       <MissionComponent
@@ -26,6 +29,9 @@
       >
       </MissionComponent>
     </l-map>
+    <div class="overlay-bot-container">
+      <OverlayBotComponent />
+    </div>
   </div>
 </template>
 
@@ -33,6 +39,7 @@
 import "leaflet/dist/leaflet.css";
 import { LMap, LTileLayer, LIcon, LMarker } from "@vue-leaflet/vue-leaflet";
 import MissionComponent from "../components/MissionComponent.vue";
+import OverlayBotComponent from "../components/OverlayBotComponent.vue";
 import axios from "axios";
 
 export default {
@@ -43,6 +50,7 @@ export default {
     LIcon,
     LMarker,
     MissionComponent,
+    OverlayBotComponent,
   },
   data() {
     let latitude = 0;
@@ -113,10 +121,66 @@ export default {
 </script>
 
 <style>
-.me-icon {
+.map {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+}
+.map-leaflet {
+  z-index: 0;
+}
+.overlay-bot-container {
+  width: 100vw;
+  height: 15vh;
+  position: absolute;
+  bottom: 25px;
+  z-index: 10;
+}
+.marker-me {
   height: 50px;
-  width: auto;
+  width: 50px;
   margin-top: -17px;
   margin-left: -17px;
+  background-color: var(--citoyen-color);
+  border-radius: 50%;
+  display: flex;
+  position: relative;
+}
+.mine-icon{
+ width: 80% !important;
+ margin: auto;
+}
+.marker-me div{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 4px solid var(--citoyen-color);
+  transform: translate(-4px,-4px);
+  animation: 1.2s infinite ease marker-hero-anim;
+}
+.marker-me div:nth-child(2){
+  animation-delay: 0.4s;
+}
+
+@keyframes marker-hero-anim {
+  from{
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    left: 0;
+    top: 0%;
+
+  }
+  80%{
+    width: 140%;
+    height: 140%;
+    left: -20%;
+    top: -20%;
+    opacity: 0;
+  }
+  to{
+    opacity: 0;
+  }
 }
 </style>

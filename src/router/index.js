@@ -30,6 +30,13 @@ const routes = [
     }
   },
   {
+    path: '/map',
+    name: 'MapView',
+    component: function () {
+      return import(/* webpackChunkName: "about" */ '../views/MapView.vue')
+    }
+  },
+  {
     path: '/missions',
     name: 'Mission',
     component: Mission

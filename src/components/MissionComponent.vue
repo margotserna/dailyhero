@@ -1,11 +1,17 @@
 <template>
   <l-marker
     :key="marker._id"
-    :lat-lng="[marker.lat,marker.lon]"
-    @click="showDetails" style="pointer-events: auto;"
+    :lat-lng="[marker.lat, marker.lon]"
+    @click="showDetails"
+    style="pointer-events: auto"
   >
     <l-icon ref="icon">
-      <img class="mission-icon" :src="require(`@/assets/icon_hero/2612562_hero_super girl_woman_wonder woman_icon.png`)"/>
+      <div class="img-marker">
+        <img
+          class="citizen-icon"
+          :src="require(`@/assets/img/icons/hero/${marker.imageUrl}.png`)"
+        />
+      </div>
     </l-icon>
   </l-marker>
 </template>
@@ -18,28 +24,34 @@ export default {
   props: {
     marker: {
       type: Object,
-      required: true
-    }
+      required: true,
+    },
   },
   methods: {
     showDetails() {
       this.$router.push({
         name: "Mission",
         params: {
-          id: this.marker._id
-        }
+          id: this.marker._id,
+        },
       });
-    }
-  }
-}
-
+    },
+  },
+};
 </script>
 
 <style>
-  .mission-icon {
-    height: 50px;
-    width: auto;
-    margin-top: -17px;
-    margin-left: -17px;
-  }
+.img-marker {
+  height: 50px;
+  width: 50px;
+  margin-top: -17px;
+  margin-left: -17px;
+  background-color: var(--hero-color);
+  border-radius: 50%;
+  display: flex;
+}
+.citizen-icon {
+  width: 80% !important;
+  margin: auto;
+}
 </style>

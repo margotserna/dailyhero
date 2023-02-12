@@ -14,15 +14,16 @@ export default createStore({
         lat: 47.02075094279522
       }
     }
+
   },
   getters: {
   },
   mutations: {
     setUserId(user_id){
-      this.state.user_id = user_id
+      this.state.user.id = user_id
     },
-    setIsHero(bool){
-      this.state.isHero = bool
+    setUserType(type){
+      this.state.user.type = type
     }
   },
   actions: {

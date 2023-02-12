@@ -9,7 +9,7 @@
       <div></div>
     </router-link>
     <router-link to="/" class="link-back">
-      <img :src="require(`../assets/img/icons/${isUserHero ? 'hero':'citoyen'}/fox.png`)" />
+      <img :src="require(`../assets/img/icons/${this.$store.state.user.type == 'hero' ? 'hero':'citoyen'}/fox.png`)" />
       <div class="icon-circle">
         <div class="icon-arrow">
           <div></div>
@@ -21,7 +21,7 @@
         </div>
       </div>
     </router-link>
-    <router-link to="/map" class="link-to-create">
+    <router-link to="/new-mission" class="link-to-create">
       <div></div>
       <div></div>
     </router-link>
@@ -39,6 +39,12 @@ export default {};
   display: flex;
   justify-content: space-around;
   align-items: flex-end;
+}
+
+.citizen .link-to-list,
+.citizen .link-to-create,
+.citizen .link-back {
+  background-color:#DFFAFF !important;
 }
 
 .link-to-list,
