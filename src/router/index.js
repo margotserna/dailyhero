@@ -2,8 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import RoleSelection from '../views/RoleSelectionView.vue'
 import Mission from '../views/MissionsView.vue'
 import MissionForm from '../views/MissionFormView.vue'
-
-
+import ProfileView from '../views/ProfileView.vue'
+import MotivationView from '../views/MotivationView.vue'
 const routes = [
   {
     path: '/',
@@ -11,11 +11,18 @@ const routes = [
     component: RoleSelection
   },
   {
+    path: '/profile',
+    name: 'ProfileView',
+    component: ProfileView
+  },
+  {
+    path: '/motivation',
+    name: 'MotivationView',
+    component: MotivationView
+  },
+  {
     path: '/map',
     name: 'MapView',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
     component: function () {
       return import(/* webpackChunkName: "about" */ '../views/MapView.vue')
     }
@@ -25,6 +32,13 @@ const routes = [
     name: 'SuperHeroesView',
     component: function () {
       return import(/* webpackChunkName: "about" */ '../views/SuperHeroesView.vue')
+    }
+  },
+  {
+    path: '/map',
+    name: 'MapView',
+    component: function () {
+      return import(/* webpackChunkName: "about" */ '../views/MapView.vue')
     }
   },
   {

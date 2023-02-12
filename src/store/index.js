@@ -9,6 +9,7 @@ export default createStore({
         username: "Simon",
         token: 20,
         type: "hero",
+        ville: "Nantes",
         lon: -1.7938438776198748,
         lat: 47.02075094279522
       }
