@@ -8,6 +8,7 @@
         url="http://{s}.tile.stamen.com/watercolor/{z}/{x}/{y}.jpg"
         layer-type="base"
         name="OpenStreetMap"
+        options="{ zoomControl: true, dragging: mobileDragg, tap: mobileTap }"
       ></l-tile-layer>
       <l-marker :key="1618" :lat-lng="[latitude, longitude]" @click="showDetails" style="pointer-events: auto;">
         <l-icon ref="me-icon">
