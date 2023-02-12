@@ -18,7 +18,7 @@
         </div>
       </div>
     </router-link>
-    <router-link to="/map" class="link-to-create">
+    <router-link to="/new-mission" class="link-to-create">
       <div></div>
       <div></div>
     </router-link>
