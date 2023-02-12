@@ -11,13 +11,23 @@ const routes = [
     component: RoleSelection
   },
   {
-    path: '/map',
-    name: 'MapView',
+    path: '/mapHero',
+    name: 'MapViewHero',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: function () {
-      return import(/* webpackChunkName: "about" */ '../views/MapView.vue')
+      return import(/* webpackChunkName: "about" */ '../views/MapViewHero.vue')
+    }
+  },
+  {
+    path: '/mapCitizen',
+    name: 'MapViewCitizen',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: function () {
+      return import(/* webpackChunkName: "about" */ '../views/MapViewCitizen.vue')
     }
   }, 
   {

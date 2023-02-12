@@ -21,12 +21,6 @@
 <script>
 export default {
   name: "RoleSelectionView",
-  data() {
-    return {
-      isCitoyen: false,
-      isHero: false,
-    };
-  },
   methods: {
     citoyen() {
       this.isCitoyen = true;
@@ -38,9 +32,16 @@ export default {
     },
     switch() {
       let router = this.$router;
-      setTimeout(function () {
-        router.push({ name: "MapView" });
-      }, 1100);
+      if (this.isHero == true) {
+        setTimeout(function () {
+          router.push({ name: "MapViewHero" });
+        }, 1100);
+      }
+      else if (this.isCitoyen == true) {
+        setTimeout(function () {
+          router.push({ name: "MapViewCitizen" });
+        }, 1100);
+      }
     },
   },
 };
