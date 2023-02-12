@@ -2,8 +2,6 @@
   <l-marker
     :key="marker._id"
     :lat-lng="[marker.lat, marker.lon]"
-    @click="showDetails"
-    style="pointer-events: auto"
   >
     <l-icon ref="icon">
       <div class="img-marker">
@@ -25,16 +23,6 @@ export default {
     marker: {
       type: Object,
       required: true,
-    },
-  },
-  methods: {
-    showDetails() {
-      this.$router.push({
-        name: "Mission",
-        params: {
-          id: this.marker._id,
-        },
-      });
     },
   },
 };
