@@ -3,7 +3,7 @@ import RoleSelection from '../views/RoleSelectionView.vue'
 import Mission from '../views/MissionsView.vue'
 import MissionForm from '../views/MissionFormView.vue'
 import ProfileView from '../views/ProfileView.vue'
-
+import MotivationView from '../views/MotivationView.vue'
 const routes = [
   {
     path: '/',
@@ -14,6 +14,11 @@ const routes = [
     path: '/profile',
     name: 'ProfileView',
     component: ProfileView
+  },
+  {
+    path: '/motivation',
+    name: 'MotivationView',
+    component: MotivationView
   },
   {
     path: '/map',
