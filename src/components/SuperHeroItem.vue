@@ -1,7 +1,7 @@
 <template>
   <div class="super-hero-item">
     <div class="super-hero-picture">
-        <img src='{{ imageUrl }}' alt="Super hero profile picture"/>
+        <img :src="require('../assets/img/icons/hero/'+imageUrl+'.png')" alt="Super hero profile picture"/>
     </div>
     <div class="super-hero-info">
         <h3>Super Hero : {{ pseudo }}</h3>
@@ -22,6 +22,9 @@ export default {
     return {
         pseudo2 : "Margot"
     }
+  },
+  mounted () {
+    console.log(this.$props.imageUrl)
   }
 }
 </script>
@@ -32,6 +35,11 @@ export default {
     flex-wrap: nowrap;
     justify-content: space-around;
     background-color: beige;
+    border-radius: 20px;
+}
+
+.super-hero-item img{
+  width: 100%;
 }
 
 .super-hero-picture {

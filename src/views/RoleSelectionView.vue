@@ -7,12 +7,12 @@
   >
     <div class="column" @click="citoyen()">
       <div class="bg-1"></div>
-      <img id="citoyen-img" src="../assets/citoyen.png" alt="Citoyen" />
+      <img id="citoyen-img" src="../assets/img/citoyen.png" alt="Citoyen" />
       <h3>Citoyen</h3>
     </div>
     <div class="column" @click="hero()">
       <div class="bg-2"></div>
-      <img id="hero-img" src="../assets/hero.png" alt="Hero" />
+      <img id="hero-img" src="../assets/img/hero.png" alt="Hero" />
       <h3>Hero</h3>
     </div>
   </div>
@@ -46,7 +46,7 @@ export default {
 };
 </script>
 
-<style lang="css">
+<style lang="css" scoped>
 .role {
   width: 100vw;
   height: 100vh;
