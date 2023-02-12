@@ -8,7 +8,7 @@ export default createStore({
         pseudo: "Super Simon",
         username: "Simon",
         token: 20,
-        type: "citizen",
+        type: "hero",
         lon: -1.7938438776198748,
         lat: 47.02075094279522
       }
