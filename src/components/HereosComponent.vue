@@ -4,7 +4,7 @@
     :lat-lng="[marker.lat,marker.lon]"
   >
     <l-icon ref="icon">
-      <img class="hero-icon" :src="require(`@/assets/icon_hero/${marker.imageUrl}`)"/>
+      <img class="hero-icon" :src="require(`@/assets/icon_hero/2612562_hero_super girl_woman_wonder woman_icon.png`)"/>
     </l-icon>
   </l-marker>
 </template>

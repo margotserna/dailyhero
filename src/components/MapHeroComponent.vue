@@ -1,5 +1,8 @@
 <template>
-  <div style="height:1370px; width:800px">
+  <div
+    style="height: 1370px; width: 800px; margin-left: -10px"
+    v-if="gettingLocation"
+  >
     <l-map ref="map" v-model:zoom="zoom" :center="[latitude, longitude]">
       <l-tile-layer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -12,7 +15,6 @@
         :marker="marker"
       >
       </HereosComponent>
-
     </l-map>
   </div>
 </template>
@@ -21,6 +23,7 @@
 import "leaflet/dist/leaflet.css";
 import { LMap, LTileLayer } from "@vue-leaflet/vue-leaflet";
 import HereosComponent from "../components/HereosComponent.vue";
+import axios from "axios";
 
 export default {
   name: "MapHeroComponent",
@@ -30,27 +33,52 @@ export default {
     HereosComponent,
   },
   data() {
+    let latitude = 0;
+    let longitude = 0;
+    let gettingLocation = false;
     return {
-      zoom: 17,
-      markers: [
-        {_id: 1, name:"Simon", imageUrl: '4043232_avatar_batman_comics_hero_icon.png', lat: 47.21109806793403, lon: -1.5683161025038441 },
-        {_id: 2, name:"Margot", imageUrl: '2612562_hero_super girl_woman_wonder woman_icon.png', lat: 47.21167747037057, lon: -1.5664760727139542 },
-      ],
-      latitude: 0,
-      longitude: 0
+      zoom: 15.5,
+      markers: [],
+      latitude,
+      longitude,
+      gettingLocation,
     };
   },
-  beforeCreate(){
-    navigator.geolocation.getCurrentPosition(
-     position => {
-       this.latitude = position.coords.latitude;
-       this.longitude = position.coords.longitude;
-     },
-     error => {
-       console.log(error.message);
-     },
-  )
-  }
+  async created() {
+    await this.getPosition();
+    await this.getHeroesMarkers();
+  },
+  async mounted() {
+    await this.getPosition();
+    await this.getHeroesMarkers();
+  },
+  methods: {
+    async getPosition() {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          this.latitude = position.coords.latitude;
+          this.longitude = position.coords.longitude;
+          this.gettingLocation = true;
+        },
+        (error) => {
+          console.log(error.message);
+        }
+      );
+    },
+    async getHeroesMarkers() {
+      axios
+        .get(
+          `https://eu-west-2.aws.data.mongodb-api.com/app/dailyhero-cypmd/endpoint/users?lon_min=-2&lon_max=2&lat_min=42&lat_max=50`
+        )
+        .then((response) => {
+          this.markers = response.data;
+          console.log(this.markers[0])
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    },
+  },
 };
 </script>
 
