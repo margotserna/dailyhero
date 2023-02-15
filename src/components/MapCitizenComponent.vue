@@ -10,7 +10,7 @@
         name="OpenStreetMap"
         options="{ zoomControl: true, dragging: mobileDragg, tap: mobileTap }"
       ></l-tile-layer>
-      <l-marker :key="1618" :lat-lng="[latitude, longitude]" @click="showDetails" style="pointer-events: auto;">
+      <l-marker :key="1618" :lat-lng="[latitude, longitude]" @click="showDetails" style="pointer-events: auto;z-index: 10;">
         <l-icon ref="me-icon">
           <div class="marker-me">
             <div></div>
@@ -22,12 +22,12 @@
           </div>
         </l-icon>
       </l-marker>
-      <MissionComponent
+      <HereosComponent
         v-for="marker in markers"
         :key="marker.id"
         :marker="marker"
       >
-      </MissionComponent>
+      </HereosComponent>
     </l-map>
     <div class="overlay-bot-container">
       <OverlayBotComponent />
@@ -38,7 +38,7 @@
 <script>
 import "leaflet/dist/leaflet.css";
 import { LMap, LTileLayer, LIcon, LMarker } from "@vue-leaflet/vue-leaflet";
-import MissionComponent from "../components/MissionComponent.vue";
+import HereosComponent from "../components/HereosComponent.vue";
 import OverlayBotComponent from "../components/OverlayBotComponent.vue";
 import axios from "axios";
 
@@ -49,7 +49,7 @@ export default {
     LTileLayer,
     LIcon,
     LMarker,
-    MissionComponent,
+    HereosComponent,
     OverlayBotComponent,
   },
   data() {
@@ -89,17 +89,17 @@ export default {
           this.latMax = this.latitude + 0.01618;
           this.lonMin = this.longitude - 0.01618;
           this.lonMax = this.longitude + 0.01618;
-          this.getMissionsMarkers();
+          this.getHeroesMarkers();
         },
         (error) => {
           console.log(error.message);
         }
       );
     },
-    async getMissionsMarkers() {
+    async getHeroesMarkers() {
       axios
         .get(
-          `https://eu-west-2.aws.data.mongodb-api.com/app/dailyhero-cypmd/endpoint/missions?lon_min=${this.lonMin}&lon_max=${this.lonMax}&lat_min=${this.latMin}&lat_max=${this.latMax}`
+          `https://eu-west-2.aws.data.mongodb-api.com/app/dailyhero-cypmd/endpoint/users?lon_min=${this.lonMin}&lon_max=${this.lonMax}&lat_min=${this.latMin}&lat_max=${this.latMax}`
         )
         .then((response) => {
           this.markers = response.data;
@@ -120,7 +120,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .map {
   height: 100vh;
   width: 100vw;

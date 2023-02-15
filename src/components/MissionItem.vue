@@ -1,7 +1,7 @@
 <template>
   <div class="mission-item">
     <div class="mission-picture">
-        <img src='{{ imageUrl }}' alt="Citizen profile picture"/>
+        <img v-if="imageUrl" :src='require(`@/assets/img/icons/citoyen/${imageUrl}.png`)' alt="Citizen profile picture"/>
     </div>
     <div class="mission-info">
         <h3> {{ title }}</h3>

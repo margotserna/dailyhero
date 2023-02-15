@@ -21,6 +21,12 @@
 <script>
 export default {
   name: "RoleSelectionView",
+  data(){
+    return {
+      isCitoyen:false,
+      isHero:false,
+    }
+  },
   methods: {
     citoyen() {
       this.isCitoyen = true;

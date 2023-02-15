@@ -1,9 +1,11 @@
 <template>
-  <div id="OverlayBot">
+  <div id="OverlayBot"
+  :class="this.$store.state.user.type">
     <router-link to="/profile" class="link-to-profile">
-      <div class="icon-circle"></div>
+      <div></div>
+      <div></div>
     </router-link>
-    <router-link to="/superheroes" class="link-to-list">
+    <router-link :to="this.$store.state.user.type == 'citizen' ? '/superheroes' : '/missions'" class="link-to-list">
       <div></div>
       <div></div>
       <div></div>
@@ -21,7 +23,7 @@
         </div>
       </div>
     </router-link>
-    <router-link to="/new-mission" class="link-to-create">
+    <router-link :to="this.$store.state.user.type == 'citizen' ? '/new-mission' : '/motivation'" class="link-to-create">
       <div></div>
       <div></div>
     </router-link>
@@ -39,12 +41,6 @@ export default {};
   display: flex;
   justify-content: space-around;
   align-items: flex-end;
-}
-
-.citizen .link-to-list,
-.citizen .link-to-create,
-.citizen .link-back {
-  background-color:#DFFAFF !important;
 }
 
 .link-to-list,
@@ -141,5 +137,35 @@ export default {};
 }
 .icon-arrow:nth-child(2){
   transform: translate(-11px, 6px) rotateZ(180deg);  
+}
+
+.citizen .link-to-list,
+.citizen .link-to-create,
+.citizen .link-back,
+.citizen .link-to-profile {
+  background-color:#DFFAFF !important;
+}
+
+.link-to-profile :nth-child(1){
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  top: 10px;
+  border: 4px solid var(--secondary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.link-to-profile :nth-child(2){
+  position: absolute;
+  width: 30px;
+  height: 20px;
+  border-radius: 30px 30px 0 0;
+  top: 40px;
+  border: 4px solid var(--secondary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 </style>

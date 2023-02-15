@@ -10,7 +10,7 @@
         v-bind:key="index"
         class="list-item"
       >
-        <MissionItem
+      <MissionItem
           @click="selectMission(mission._id)"
           :title="mission.title"
           :description="mission.description"
