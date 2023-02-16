@@ -46,7 +46,7 @@ export default {
   width: 50px;
   margin-top: -17px;
   margin-left: -17px;
-  background-color: var(--citoyen-color);
+  background-color: var(--citoyen-color) !important;
   border-radius: 50%;
   display: flex;
 }
