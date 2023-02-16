@@ -23,10 +23,10 @@
     <div class="pop-up" v-if="select">
       <div class="back-drop" @click="unselectMission()"></div>
       <div class="modal">
-        <p>Acceptez-vous la mission de {{missionSelected.user_username}} pour {{missionSelected.title}} ?</p>
+        <p>Mission pour {{missionSelected.title}} de {{missionSelected.user_username}} ?</p>
         <div class="buttons">
-          <button @click="unselectMission()">Non</button>
-          <button @click="editMission()">Oui</button>
+          <button @click="unselectMission()">Refuser</button>
+          <button @click="editMission()">Accepter</button>
         </div>
       </div>
     </div>

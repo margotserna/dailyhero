@@ -85,4 +85,7 @@ export default {
 .mission-form {
     margin: 5%
 }
+.formkit-input{
+    background-color: var(--citoyen-color) !important;
+}
 </style>
