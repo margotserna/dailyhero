@@ -120,6 +120,7 @@ export default {
   background-color: var(--hero-color);
   padding: 20px;
   height: 20vh;
+  text-align: right;
 }
 .header h1 {
   text-align: center;
@@ -127,9 +128,6 @@ export default {
   width: 80vw;
   margin-right: auto;
   margin-left: auto;
-}
-.header {
-  text-align: right;
 }
 .back {
   color: var(--secondary-color);
