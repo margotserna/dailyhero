@@ -11,7 +11,7 @@
         class="list-item"
       >
       <MissionItem
-          @click="selectMission(mission._id)"
+          @click="selectMission(mission)"
           :title="mission.title"
           :description="mission.description"
           :criticity="mission.criticity"
@@ -23,7 +23,7 @@
     <div class="pop-up" v-if="select">
       <div class="back-drop" @click="unselectMission()"></div>
       <div class="modal">
-        <p>Acceptez-vous cette mission?</p>
+        <p>Acceptez-vous la mission de {{missionSelected.user_username}} pour {{missionSelected.title}} ?</p>
         <div class="buttons">
           <button @click="unselectMission()">Non</button>
           <button @click="editMission()">Oui</button>
@@ -44,9 +44,9 @@ export default {
     MissionItem: MissionItem,
   },
   methods: {
-    selectMission(mission_id) {
+    selectMission(mission) {
       this.select = true;
-      this.mission = this.missions.filter((item) => item._id == mission_id);
+      this.missionSelected = mission;
     },
     unselectMission() {
       this.select = false;
@@ -106,7 +106,7 @@ export default {
   data() {
     return {
       missions: null,
-      mission: null,
+      missionSelected: null,
       missionObject: {},
       user: null,
       select: false,

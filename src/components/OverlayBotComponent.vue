@@ -23,7 +23,11 @@
         </div>
       </div>
     </router-link>
-    <router-link :to="this.$store.state.user.type == 'citizen' ? '/new-mission' : '/motivation'" class="link-to-create">
+    <router-link to="/new-mission" class="link-to-create" v-if="this.$store.state.user.type == 'citizen'">
+      <div></div>
+      <div></div>
+    </router-link>
+    <router-link to="/motivation" class="link-to-motivation" v-else>
       <div></div>
       <div></div>
     </router-link>
@@ -45,7 +49,8 @@ export default {};
 
 .link-to-list,
 .link-to-create, 
-.link-to-profile {
+.link-to-profile, 
+.link-to-motivation {
   width: 75px;
   height: 75px;
   border-radius: 50%;
@@ -90,6 +95,25 @@ export default {};
 
 .link-to-create div:nth-child(1){
   transform: rotateZ(90deg);
+}
+
+.link-to-motivation div:nth-child(1){
+  width: 40%;
+  height: 5px;
+  border-radius: 10px;
+  background-color: var(--secondary-color);
+  position: absolute;
+  top: 30px;
+  transform: rotateZ(90deg);
+}
+
+.link-to-motivation div:nth-child(2){
+  width: 7px;
+  height: 7px;
+  border-radius: 5px;
+  background-color: var(--secondary-color);
+  position: absolute;
+  bottom: 15px;
 }
 
 .icon-circle{

@@ -61,6 +61,13 @@
   top: 20px;
   right: 20px;
 }
+.missions{
+  margin: 0px 10px;
+}
+.list-mission, .list-demands{
+  margin-bottom: 10px;
+  padding: 10px;
+}
 </style>
 <script>
 import MissionItem from "./MissionItem.vue";

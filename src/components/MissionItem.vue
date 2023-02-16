@@ -28,11 +28,11 @@ export default {
 
 <style scoped>
 .mission-item {
+  position:relative;
   display: flex;
   flex-wrap: nowrap;
-  justify-content: space-between;
-  align-items: left;
-  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
   background-color: var(--hero-secondary);
 }
 
@@ -41,13 +41,25 @@ export default {
 }
 
 .mission-picture {
+  padding: 10px;
   width: 100px;
 }
 .mission-info {
   overflow: hidden;
+  width: calc(100% - 120px);
 }
 
 .mission-info p {
   width: 100%;
+}
+
+.mission-item::after {
+  position: absolute;
+  content: "";
+  width: 5px;
+  height: 100%;
+  top: 0px;
+  left:0px;
+  background-color: var(--hero-color);
 }
 </style>
